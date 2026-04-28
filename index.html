@@ -2,331 +2,168 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>PennySculpt AI | Shape A Better Life</title>
+
   <style>
     * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      font-family: Inter, Arial, sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(57,229,140,0.22), transparent 35%),
-        radial-gradient(circle at top right, rgba(59,130,246,0.18), transparent 35%),
-        #06121f;
+      font-family: Arial, sans-serif;
+      background: #06121f;
       color: white;
     }
 
     header {
-      padding: 24px 8%;
+      padding: 20px 8%;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
     .logo {
-      font-size: 24px;
-      font-weight: 800;
+      font-size: 22px;
+      font-weight: bold;
       color: #39e58c;
     }
 
-    .nav {
-      display: flex;
-      gap: 22px;
-      color: #cbd5e1;
-      font-size: 14px;
-    }
-
     .hero {
-      padding: 90px 8% 70px;
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 50px;
-      align-items: center;
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 10px 16px;
-      border: 1px solid rgba(57,229,140,0.35);
-      background: rgba(57,229,140,0.1);
-      color: #9fffc9;
-      border-radius: 999px;
-      font-weight: 700;
-      margin-bottom: 22px;
+      padding: 80px 8%;
+      max-width: 900px;
     }
 
     h1 {
-      font-size: clamp(42px, 6vw, 78px);
-      line-height: 1;
-      margin: 0;
-      letter-spacing: -2px;
+      font-size: 48px;
+      margin-bottom: 20px;
     }
 
-    .highlight { color: #39e58c; }
-
-    .hero p {
-      font-size: 19px;
-      line-height: 1.8;
+    p {
+      font-size: 18px;
+      line-height: 1.7;
       color: #cbd5e1;
-      max-width: 640px;
     }
 
     .buttons {
-      margin-top: 34px;
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
+      margin-top: 30px;
     }
 
     .btn {
       display: inline-block;
-      padding: 16px 26px;
-      border-radius: 16px;
+      padding: 14px 24px;
+      border-radius: 12px;
       background: #39e58c;
       color: #06121f;
       text-decoration: none;
-      font-weight: 800;
-      box-shadow: 0 20px 45px rgba(57,229,140,0.22);
-    }
-
-    .btn.secondary {
-      background: rgba(255,255,255,0.06);
-      color: white;
-      border: 1px solid rgba(255,255,255,0.15);
-      box-shadow: none;
-    }
-
-    .phone-card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.13), rgba(255,255,255,0.04));
-      border: 1px solid rgba(255,255,255,0.14);
-      border-radius: 36px;
-      padding: 24px;
-      box-shadow: 0 30px 80px rgba(0,0,0,0.35);
-    }
-
-    .phone-screen {
-      background: #081827;
-      border-radius: 28px;
-      padding: 22px;
-      min-height: 430px;
-    }
-
-    .insight {
-      background: rgba(57,229,140,0.12);
-      border: 1px solid rgba(57,229,140,0.25);
-      padding: 18px;
-      border-radius: 22px;
-      margin-bottom: 18px;
-    }
-
-    .mini-card {
-      background: rgba(255,255,255,0.06);
-      padding: 16px;
-      border-radius: 18px;
-      margin-top: 12px;
-      color: #dbeafe;
+      font-weight: bold;
+      margin-right: 10px;
     }
 
     section {
-      padding: 70px 8%;
+      padding: 60px 8%;
+      max-width: 900px;
     }
 
-    .section-title {
-      max-width: 780px;
-      margin-bottom: 36px;
-    }
-
-    .section-title h2 {
-      font-size: 42px;
-      margin: 10px 0;
-      letter-spacing: -1px;
-    }
-
-    .section-title p {
-      color: #cbd5e1;
-      font-size: 18px;
-      line-height: 1.7;
+    h2 {
+      margin-bottom: 15px;
     }
 
     .features {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
       gap: 20px;
     }
 
     .card {
-      background: rgba(255,255,255,0.06);
-      padding: 26px;
-      border-radius: 24px;
-      border: 1px solid rgba(255,255,255,0.12);
-      transition: 0.25s;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-      background: rgba(255,255,255,0.09);
-    }
-
-    .icon {
-      font-size: 34px;
-      margin-bottom: 16px;
-    }
-
-    .card h3 {
-      color: #39e58c;
-      margin-bottom: 12px;
-    }
-
-    .card p {
-      color: #cbd5e1;
-      line-height: 1.7;
-    }
-
-    .cta {
-      background: linear-gradient(135deg, rgba(57,229,140,0.18), rgba(59,130,246,0.14));
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 34px;
-      padding: 48px;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 30px;
-      align-items: center;
-    }
-
-    .cta h2 {
-      font-size: 38px;
-      margin: 0 0 12px;
-    }
-
-    .cta p {
-      color: #cbd5e1;
-      font-size: 18px;
-      line-height: 1.7;
+      background: #0f2235;
+      padding: 20px;
+      border-radius: 15px;
     }
 
     footer {
-      padding: 28px 8%;
-      border-top: 1px solid rgba(255,255,255,0.12);
+      padding: 20px 8%;
+      border-top: 1px solid #ffffff20;
       color: #94a3b8;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    @media (max-width: 900px) {
-      .hero, .cta {
-        grid-template-columns: 1fr;
-      }
-
-      .features {
-        grid-template-columns: 1fr;
-      }
-
-      .nav {
-        display: none;
-      }
     }
   </style>
 </head>
+
 <body>
 
-  <header>
-    <div class="logo">PennySculpt AI</div>
-    <div class="nav">
-      <span>Smart Space</span>
-      <span>Wardrobe</span>
-      <span>Fitness</span>
-      <span>Self Care</span>
+<header>
+  <div class="logo">PennySculpt AI</div>
+  <div>Shape A Better Life</div>
+</header>
+
+<section class="hero">
+  <h1>Stop wasting time, money, and effort managing your lifestyle.</h1>
+
+  <p>
+    PennySculpt AI is your all-in-one lifestyle system that helps you manage groceries,
+    fitness, wardrobe, and routines using AI-powered insights — so you live more
+    disciplined and waste less.
+  </p>
+
+  <div class="buttons">
+    <a href="#" class="btn">Download Android Beta</a>
+  </div>
+</section>
+
+<section>
+  <h2>Why PennySculpt AI exists</h2>
+  <p>
+    Most people manage their lifestyle using multiple apps, notes, reminders,
+    and websites. This leads to wasted time, money, and effort. PennySculpt AI
+    combines these into one system that helps users make better daily decisions.
+  </p>
+</section>
+
+<section>
+  <h2>How PennySculpt AI works</h2>
+  <p>
+    PennySculpt AI connects groceries, wardrobe, fitness, diet, and routines into
+    one intelligent system. Data from one area improves another — helping users
+    stay consistent, reduce waste, and build discipline over time.
+  </p>
+</section>
+
+<section>
+  <h2>Core Features</h2>
+  <div class="features">
+    <div class="card">
+      <h3>Smart Space</h3>
+      <p>Track groceries, expiry, and reduce food waste.</p>
     </div>
-  </header>
 
-  <main>
-    <section class="hero">
-      <div>
-        <div class="badge">🚀 Android beta now open for early testers</div>
-        <h1>Shape a better life with <span class="highlight">AI-powered lifestyle intelligence.</span></h1>
-        <p>
-          PennySculpt AI helps you manage groceries, wardrobe, fitness, diet, self-care,
-          routines, and daily discipline in one premium lifestyle app.
-        </p>
+    <div class="card">
+      <h3>Smart Wardrobe</h3>
+      <p>Organise outfits and improve your style decisions.</p>
+    </div>
 
-        <div class="buttons">
-          <a href="#" class="btn">Join Beta Testing</a>
-          <a href="mailto:support@pennysculptai.com" class="btn secondary">Contact Support</a>
-        </div>
-      </div>
+    <div class="card">
+      <h3>Fitness & Diet</h3>
+      <p>Track workouts and get diet insights.</p>
+    </div>
 
-      <div class="phone-card">
-        <div class="phone-screen">
-          <div class="insight">
-            <strong>Today’s AI Insight</strong>
-            <p>Use spinach, tomato, and milk today. These items are close to expiry.</p>
-          </div>
-          <div class="mini-card">🥗 Suggested meal: Spinach dosa + tomato chutney</div>
-          <div class="mini-card">🏋️ Workout logged: Chest & Triceps</div>
-          <div class="mini-card">👕 Outfit idea: Oversized tee + relaxed shorts</div>
-          <div class="mini-card">🧘 Routine reminder: Evening self-care pending</div>
-        </div>
-      </div>
-    </section>
+    <div class="card">
+      <h3>Self Care</h3>
+      <p>Build routines and improve discipline.</p>
+    </div>
+  </div>
+</section>
 
-    <section>
-      <div class="section-title">
-        <span class="highlight">One app. Four lifestyle systems.</span>
-        <h2>Designed to reduce waste, save time, and build discipline.</h2>
-        <p>
-          People manage lifestyle decisions across notes, reminders, apps, screenshots,
-          shopping sites, and memory. PennySculpt AI brings everything into one connected system.
-        </p>
-      </div>
+<section>
+  <h2>Your Feedback Matters</h2>
+  <p>
+    PennySculpt AI is currently in Android beta. As you explore the website and
+    the app, feel free to note what you understand clearly, what feels unclear,
+    and what improvements you suggest. Your feedback will help shape the product.
+  </p>
+</section>
 
-      <div class="features">
-        <div class="card">
-          <div class="icon">🥦</div>
-          <h3>Smart Space</h3>
-          <p>Track groceries, expiry dates, receipts, spending, and reduce food waste with AI suggestions.</p>
-        </div>
-
-        <div class="card">
-          <div class="icon">👕</div>
-          <h3>Smart Wardrobe</h3>
-          <p>Organise outfits, sizes, colours, style preferences, and discover better clothing choices.</p>
-        </div>
-
-        <div class="card">
-          <div class="icon">🏋️</div>
-          <h3>Fitness & Diet</h3>
-          <p>Log workouts, monitor progress, and receive diet guidance based on your goals and groceries.</p>
-        </div>
-
-        <div class="card">
-          <div class="icon">🧘</div>
-          <h3>Self Care & Routine</h3>
-          <p>Build daily discipline through wellness, medication, skincare, spiritual, and habit reminders.</p>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="cta">
-        <div>
-          <h2>Be part of the early PennySculpt AI beta.</h2>
-          <p>
-            We are currently testing the Android version with early users and collecting feedback
-            before expanding the product further.
-          </p>
-        </div>
-        <a href="mailto:support@pennysculptai.com?subject=PennySculpt AI Beta Access" class="btn">Request Access</a>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <span>© 2026 PennySculpt AI. Shape A Better Life.</span>
-    <span>support@pennysculptai.com</span>
-  </footer>
+<footer>
+  © 2026 PennySculpt AI | support@pennysculptai.com
+</footer>
 
 </body>
 </html>
